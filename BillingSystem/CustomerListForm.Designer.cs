@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             lblTitle = new Label();
             lblSearch = new Label();
             dvgCustomers = new DataGridView();
@@ -49,7 +51,7 @@
             // 
             lblTitle.AutoSize = true;
             lblTitle.Font = new Font("SimSun", 22.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblTitle.Location = new Point(310, 62);
+            lblTitle.Location = new Point(310, 51);
             lblTitle.Name = "lblTitle";
             lblTitle.Size = new Size(277, 37);
             lblTitle.TabIndex = 0;
@@ -59,7 +61,7 @@
             // 
             lblSearch.AutoSize = true;
             lblSearch.Font = new Font("Tahoma", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblSearch.Location = new Point(146, 139);
+            lblSearch.Location = new Point(49, 130);
             lblSearch.Name = "lblSearch";
             lblSearch.Size = new Size(57, 18);
             lblSearch.TabIndex = 1;
@@ -67,11 +69,22 @@
             // 
             // dvgCustomers
             // 
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.Font = new Font("Tahoma", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dvgCustomers.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             dvgCustomers.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dvgCustomers.BackgroundColor = Color.FromArgb(255, 245, 245);
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(247, 214, 208);
+            dataGridViewCellStyle2.Font = new Font("Tahoma", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle2.ForeColor = Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            dvgCustomers.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dvgCustomers.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dvgCustomers.Columns.AddRange(new DataGridViewColumn[] { CustomerID, FullName, Address, ContactNumber, Email, Balance });
-            dvgCustomers.Location = new Point(40, 181);
+            dvgCustomers.Location = new Point(38, 187);
             dvgCustomers.Margin = new Padding(3, 4, 3, 4);
             dvgCustomers.Name = "dvgCustomers";
             dvgCustomers.ReadOnly = true;
@@ -127,7 +140,7 @@
             btnAdd.BackColor = Color.FromArgb(226, 180, 189);
             btnAdd.Font = new Font("Tahoma", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnAdd.ForeColor = Color.Black;
-            btnAdd.Location = new Point(176, 550);
+            btnAdd.Location = new Point(186, 543);
             btnAdd.Margin = new Padding(3, 4, 3, 4);
             btnAdd.Name = "btnAdd";
             btnAdd.Size = new Size(147, 31);
@@ -140,7 +153,7 @@
             btnDelete.BackColor = Color.FromArgb(247, 214, 208);
             btnDelete.Font = new Font("Tahoma", 9F);
             btnDelete.ForeColor = Color.Black;
-            btnDelete.Location = new Point(386, 550);
+            btnDelete.Location = new Point(396, 543);
             btnDelete.Margin = new Padding(3, 4, 3, 4);
             btnDelete.Name = "btnDelete";
             btnDelete.Size = new Size(123, 31);
@@ -154,7 +167,7 @@
             btnSearch.BackColor = Color.FromArgb(74, 74, 74);
             btnSearch.Font = new Font("Tahoma", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnSearch.ForeColor = Color.White;
-            btnSearch.Location = new Point(706, 133);
+            btnSearch.Location = new Point(771, 126);
             btnSearch.Margin = new Padding(3, 4, 3, 4);
             btnSearch.Name = "btnSearch";
             btnSearch.Size = new Size(86, 31);
@@ -166,10 +179,12 @@
             // txtSearch
             // 
             txtSearch.BackColor = Color.FromArgb(247, 214, 208);
-            txtSearch.Location = new Point(209, 133);
+            txtSearch.ForeColor = Color.Black;
+            txtSearch.Location = new Point(122, 126);
             txtSearch.Margin = new Padding(3, 4, 3, 4);
             txtSearch.Name = "txtSearch";
-            txtSearch.Size = new Size(491, 27);
+            txtSearch.PlaceholderText = "  Search customer...";
+            txtSearch.Size = new Size(623, 27);
             txtSearch.TabIndex = 6;
             txtSearch.TextChanged += txtSearch_TextChanged;
             // 
@@ -177,7 +192,7 @@
             // 
             btnLogout.BackColor = Color.FromArgb(226, 180, 189);
             btnLogout.Font = new Font("Tahoma", 9F);
-            btnLogout.Location = new Point(578, 550);
+            btnLogout.Location = new Point(588, 543);
             btnLogout.Margin = new Padding(3, 4, 3, 4);
             btnLogout.Name = "btnLogout";
             btnLogout.Size = new Size(122, 31);
