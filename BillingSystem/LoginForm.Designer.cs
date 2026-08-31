@@ -114,7 +114,7 @@
             MaximizeBox = false;
             Name = "LoginForm";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Billing System v1.0 - Login (J. De Jesus)";
+            Text = "Billing System v1.0 - Login (De Jesus John Ric M.)";
             ResumeLayout(false);
             PerformLayout();
         }
