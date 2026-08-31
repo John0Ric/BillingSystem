@@ -41,68 +41,72 @@
             // 
             lblTitle.AutoSize = true;
             lblTitle.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblTitle.Location = new Point(106, 23);
+            lblTitle.Location = new Point(121, 31);
             lblTitle.Name = "lblTitle";
-            lblTitle.Size = new Size(163, 25);
+            lblTitle.Size = new Size(203, 32);
             lblTitle.TabIndex = 0;
             lblTitle.Text = "BILLING SYSTEM";
             // 
             // lblPassword
             // 
             lblPassword.AutoSize = true;
-            lblPassword.Location = new Point(51, 117);
+            lblPassword.Location = new Point(58, 156);
             lblPassword.Name = "lblPassword";
-            lblPassword.Size = new Size(60, 15);
+            lblPassword.Size = new Size(73, 20);
             lblPassword.TabIndex = 1;
             lblPassword.Text = "Password:";
             // 
             // lblUsername
             // 
             lblUsername.AutoSize = true;
-            lblUsername.Location = new Point(51, 75);
+            lblUsername.Location = new Point(58, 100);
             lblUsername.Name = "lblUsername";
-            lblUsername.Size = new Size(63, 15);
+            lblUsername.Size = new Size(78, 20);
             lblUsername.TabIndex = 2;
             lblUsername.Text = "Username:";
             // 
             // txtUsername
             // 
-            txtUsername.Location = new Point(129, 75);
+            txtUsername.Location = new Point(147, 100);
+            txtUsername.Margin = new Padding(3, 4, 3, 4);
             txtUsername.Name = "txtUsername";
-            txtUsername.Size = new Size(100, 23);
+            txtUsername.Size = new Size(114, 27);
             txtUsername.TabIndex = 3;
             // 
             // txtPassword
             // 
-            txtPassword.Location = new Point(129, 109);
+            txtPassword.Location = new Point(147, 145);
+            txtPassword.Margin = new Padding(3, 4, 3, 4);
             txtPassword.Name = "txtPassword";
             txtPassword.PasswordChar = '*';
-            txtPassword.Size = new Size(100, 23);
+            txtPassword.Size = new Size(114, 27);
             txtPassword.TabIndex = 4;
             // 
             // btnLogin
             // 
-            btnLogin.Location = new Point(63, 170);
+            btnLogin.Location = new Point(72, 227);
+            btnLogin.Margin = new Padding(3, 4, 3, 4);
             btnLogin.Name = "btnLogin";
-            btnLogin.Size = new Size(75, 23);
+            btnLogin.Size = new Size(86, 31);
             btnLogin.TabIndex = 5;
             btnLogin.Text = "Login";
             btnLogin.UseVisualStyleBackColor = true;
             // 
             // btnCancel
             // 
-            btnCancel.Location = new Point(154, 170);
+            btnCancel.Location = new Point(176, 227);
+            btnCancel.Margin = new Padding(3, 4, 3, 4);
             btnCancel.Name = "btnCancel";
-            btnCancel.Size = new Size(75, 23);
+            btnCancel.Size = new Size(86, 31);
             btnCancel.TabIndex = 6;
             btnCancel.Text = "Cancel";
             btnCancel.UseVisualStyleBackColor = true;
             // 
             // LoginForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(384, 261);
+            ClientSize = new Size(439, 348);
             Controls.Add(btnCancel);
             Controls.Add(btnLogin);
             Controls.Add(txtPassword);
@@ -111,10 +115,11 @@
             Controls.Add(lblPassword);
             Controls.Add(lblTitle);
             FormBorderStyle = FormBorderStyle.FixedSingle;
+            Margin = new Padding(3, 4, 3, 4);
             MaximizeBox = false;
             Name = "LoginForm";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Billing System v1.0 - Login (J. De Jesus)";
+            Text = "Billing System v1.0 - Login (JR. De Jesus)";
             ResumeLayout(false);
             PerformLayout();
         }
