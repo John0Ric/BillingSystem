@@ -188,6 +188,7 @@
             Name = "AddCustomerForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Billing System - AddCustomerForm-sayson";
+            Load += AddCustomerForm_Load;
             ResumeLayout(false);
             PerformLayout();
         }
