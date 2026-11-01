@@ -56,6 +56,7 @@
             lblStatusSep = new ToolStripStatusLabel();
             lblStatusTime = new ToolStripStatusLabel();
             statusTimer = new System.Windows.Forms.Timer(components);
+            btnChangePassword = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvCustomers).BeginInit();
             statusStrip1.SuspendLayout();
             SuspendLayout();
@@ -172,7 +173,7 @@
             btnAdd.Location = new Point(37, 500);
             btnAdd.Margin = new Padding(3, 4, 3, 4);
             btnAdd.Name = "btnAdd";
-            btnAdd.Size = new Size(147, 31);
+            btnAdd.Size = new Size(122, 31);
             btnAdd.TabIndex = 3;
             btnAdd.Text = "Add Customer";
             btnAdd.UseVisualStyleBackColor = false;
@@ -183,10 +184,10 @@
             btnDelete.BackColor = Color.FromArgb(247, 214, 208);
             btnDelete.Font = new Font("Tahoma", 9F);
             btnDelete.ForeColor = Color.Black;
-            btnDelete.Location = new Point(200, 500);
+            btnDelete.Location = new Point(165, 500);
             btnDelete.Margin = new Padding(3, 4, 3, 4);
             btnDelete.Name = "btnDelete";
-            btnDelete.Size = new Size(123, 31);
+            btnDelete.Size = new Size(77, 31);
             btnDelete.TabIndex = 4;
             btnDelete.Text = "Delete";
             btnDelete.UseVisualStyleBackColor = false;
@@ -194,9 +195,9 @@
             // 
             // btnSearch
             // 
-            btnSearch.BackColor = Color.FromArgb(74, 74, 74);
+            btnSearch.BackColor = Color.FromArgb(226, 180, 189);
             btnSearch.Font = new Font("Tahoma", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnSearch.ForeColor = Color.White;
+            btnSearch.ForeColor = Color.Black;
             btnSearch.Location = new Point(770, 88);
             btnSearch.Margin = new Padding(3, 4, 3, 4);
             btnSearch.Name = "btnSearch";
@@ -261,10 +262,10 @@
             // 
             btnExportPdf.BackColor = Color.FromArgb(247, 214, 208);
             btnExportPdf.Font = new Font("Tahoma", 9F);
-            btnExportPdf.Location = new Point(181, 551);
+            btnExportPdf.Location = new Point(165, 554);
             btnExportPdf.Margin = new Padding(3, 4, 3, 4);
             btnExportPdf.Name = "btnExportPdf";
-            btnExportPdf.Size = new Size(122, 31);
+            btnExportPdf.Size = new Size(109, 31);
             btnExportPdf.TabIndex = 10;
             btnExportPdf.Text = "Export to PDF";
             btnExportPdf.UseVisualStyleBackColor = false;
@@ -289,10 +290,10 @@
             btnManagePermissions.BackColor = Color.FromArgb(247, 214, 208);
             btnManagePermissions.Font = new Font("Tahoma", 9F);
             btnManagePermissions.ForeColor = Color.Black;
-            btnManagePermissions.Location = new Point(518, 500);
+            btnManagePermissions.Location = new Point(248, 500);
             btnManagePermissions.Margin = new Padding(3, 4, 3, 4);
             btnManagePermissions.Name = "btnManagePermissions";
-            btnManagePermissions.Size = new Size(200, 31);
+            btnManagePermissions.Size = new Size(160, 31);
             btnManagePermissions.TabIndex = 12;
             btnManagePermissions.Text = " Manage Permissions";
             btnManagePermissions.UseVisualStyleBackColor = false;
@@ -337,12 +338,27 @@
             statusTimer.Interval = 1000;
             statusTimer.Tick += statusTimer_Tick;
             // 
+            // btnChangePassword
+            // 
+            btnChangePassword.BackColor = Color.FromArgb(247, 214, 208);
+            btnChangePassword.Font = new Font("Tahoma", 9F);
+            btnChangePassword.ForeColor = Color.Black;
+            btnChangePassword.Location = new Point(595, 500);
+            btnChangePassword.Margin = new Padding(3, 4, 3, 4);
+            btnChangePassword.Name = "btnChangePassword";
+            btnChangePassword.Size = new Size(133, 31);
+            btnChangePassword.TabIndex = 14;
+            btnChangePassword.Text = "Change Password";
+            btnChangePassword.UseVisualStyleBackColor = false;
+            btnChangePassword.Click += btnChangePassword_Click;
+            // 
             // CustomerListForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(255, 245, 245);
             ClientSize = new Size(896, 615);
+            Controls.Add(btnChangePassword);
             Controls.Add(statusStrip1);
             Controls.Add(btnManagePermissions);
             Controls.Add(btnAuditLog);
@@ -396,5 +412,6 @@
         private ToolStripStatusLabel lblStatusTime;
         private System.Windows.Forms.Timer statusTimer;
         private DataGridViewTextBoxColumn Status;
+        private Button btnChangePassword;
     }
 }
