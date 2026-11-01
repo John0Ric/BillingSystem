@@ -614,5 +614,22 @@ namespace BillingSystem
         {
 
         }
+
+        private void btnChangePassword_Click(object sender, EventArgs e)
+        {
+            if (AppSession.CurrentUserID <= 0)
+            {
+                MessageBox.Show(
+                    "No logged-in user found.",
+                    "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+
+                return;
+            }
+
+            frmChangePassword changePassword = new frmChangePassword();
+            changePassword.ShowDialog();
+        }
     }
 }
