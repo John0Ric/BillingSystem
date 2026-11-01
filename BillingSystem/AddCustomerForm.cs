@@ -16,7 +16,7 @@ namespace BillingSystem
         // 0 = Add mode (new customer)
         // > 0 = Edit mode (holds the CustomerID being edited)
         private int _editCustomerId = 0;
-        
+
         // Constructor for ADD mode (no parameters)
         public AddCustomerForm()
         {
@@ -171,61 +171,61 @@ namespace BillingSystem
                 UpdateCustomer();  // EDIT mode
             }
 
-            
+
         }
         private void InsertCustomer()
         {
             try
+            {
+                using (var conn = DatabaseConnection.GetConnection())
                 {
-                    using (var conn = DatabaseConnection.GetConnection())
-                    {
-                        conn.Open();
+                    conn.Open();
 
-                        // Parameterized INSERT - safe from SQL injection
-                        string sql = @"INSERT INTO Customers
+                    // Parameterized INSERT - safe from SQL injection
+                    string sql = @"INSERT INTO Customers
                                             (FullName, Address, ContactNumber, Email,
                         Balance, Status)
                                         VALUES
                                             (@FullName, @Address, @ContactNumber,
                         @Email, @Balance, @Status);";
 
-                        using (var cmd = new MySqlCommand(sql, conn))
+                    using (var cmd = new MySqlCommand(sql, conn))
+                    {
+                        // Each @parameter safely carries one value from the form
+                        cmd.Parameters.AddWithValue("@FullName",
+                    txtFullName.Text.Trim());
+                        cmd.Parameters.AddWithValue("@Address",
+                    txtAddress.Text.Trim());
+                        cmd.Parameters.AddWithValue("@ContactNumber",
+                    txtContact.Text.Trim());
+                        cmd.Parameters.AddWithValue("@Email",
+                    txtEmail.Text.Trim());
+                        cmd.Parameters.AddWithValue("@Balance",
+                    txtBalance.Text.Trim());
+                        cmd.Parameters.AddWithValue("@Status", "Active");
+
+                        // ExecuteNonQuery runs INSERT/UPDATE/DELETE and
+                        // returns the number of rows affected
+                        int rowsAffected = cmd.ExecuteNonQuery();
+
+                        if (rowsAffected > 0)
                         {
-                            // Each @parameter safely carries one value from the form
-                            cmd.Parameters.AddWithValue("@FullName",
-                        txtFullName.Text.Trim());
-                            cmd.Parameters.AddWithValue("@Address",
-                        txtAddress.Text.Trim());
-                            cmd.Parameters.AddWithValue("@ContactNumber",
-                        txtContact.Text.Trim());
-                            cmd.Parameters.AddWithValue("@Email",
-                        txtEmail.Text.Trim());
-                            cmd.Parameters.AddWithValue("@Balance",
-                        txtBalance.Text.Trim());
-                            cmd.Parameters.AddWithValue("@Status", "Active");
+                            MessageBox.Show("Customer saved successfully.",
+                                "Saved", MessageBoxButtons.OK,
+                                MessageBoxIcon.Information);
+                            AuditLogger.Log("ADD_CUSTOMER",
+                            $"New customer '{txtFullName.Text.Trim()}' added by {AppSession.CurrentUsername}.");
 
-                            // ExecuteNonQuery runs INSERT/UPDATE/DELETE and
-                            // returns the number of rows affected
-                            int rowsAffected = cmd.ExecuteNonQuery();
-
-                            if (rowsAffected > 0)
-                            {
-                                MessageBox.Show("Customer saved successfully.",
-                                    "Saved", MessageBoxButtons.OK,
-                                    MessageBoxIcon.Information);
-                                AuditLogger.Log("ADD_CUSTOMER",
-                                $"New customer '{txtFullName.Text.Trim()}' added by {AppSession.CurrentUsername}.");
-
-                                ClearFields();
-                            }
+                            ClearFields();
                         }
                     }
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"Error saving customer:\n{ex.Message}",
-                        "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error saving customer:\n{ex.Message}",
+                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
         private void UpdateCustomer()
         {
@@ -282,5 +282,9 @@ namespace BillingSystem
             }
         }
 
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
