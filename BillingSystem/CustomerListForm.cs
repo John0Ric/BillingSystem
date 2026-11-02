@@ -26,6 +26,7 @@ namespace BillingSystem
         {
             InitializeComponent();
             ConfigureDataGridView();
+            InitStatusStrip();
         }
 
         private void ConfigureDataGridView()
@@ -108,6 +109,7 @@ namespace BillingSystem
 
         private void dgvCustomers_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (!_canEdit) return;
             // e.RowIndex is -1 when the header row is double clicked -- ignore it
             if (e.RowIndex < 0) return;
             if (!_canEdit) return;
@@ -244,6 +246,8 @@ namespace BillingSystem
 
                         if (rowsAffected > 0)
                         {
+                            AuditLogger.Log("DELETE_CUSTOMER",
+                                $"Customer ID {customerId} deleted by {AppSession.CurrentUsername}.");
                             MessageBox.Show("Customer deleted successfully.", "Deleted",
                                 MessageBoxButtons.OK, MessageBoxIcon.Information);
                             AuditLogger.Log("DELETE_CUSTOMER",
@@ -275,6 +279,9 @@ namespace BillingSystem
 
         private void btnAnalytics_Click(object sender, EventArgs e)
         {
+            AuditLogger.Log("VIEW_ANALYTICS",
+                $"{AppSession.CurrentUsername} opened the Analytics Dashboard.");
+
             // Open the Analytics Dashboard as a dialog so the 
             // Customer List stays open in the background
             frmAnalytics analyticsForm = new frmAnalytics();
@@ -286,6 +293,9 @@ namespace BillingSystem
 
         private void btnExportExcel_Click(object sender, EventArgs e)
         {
+            AuditLogger.Log("EXPORT_EXCEL",
+                $"{AppSession.CurrentUsername} exported customer list to Excel.");
+
             // Make sure there is something to export
             if (dgvCustomers.Rows.Count == 0)
             {
@@ -350,6 +360,8 @@ namespace BillingSystem
 
         private void btnExportPdf_Click(object sender, EventArgs e)
         {
+            AuditLogger.Log("EXPORT_PDF",
+                $"{AppSession.CurrentUsername} exported customer list to PDF.");
             // Make sure there is something to export
             if (dgvCustomers.Rows.Count == 0)
             {

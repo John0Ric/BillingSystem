@@ -68,17 +68,6 @@ namespace BillingSystem
                                 listForm.Show();
                                 this.Hide();
                             }
-                            else
-                            {
-                                // Not match found - wrong credentials
-                                MessageBox.Show(
-                                    "Invalid username or password.\nPlease try again.",
-                                    "Login Failed",
-                                    MessageBoxButtons.OK,
-                                    MessageBoxIcon.Error);
-                                txtPassword.Clear();
-                                txtPassword.Focus();
-                            }
                         }
                     }
                 }
