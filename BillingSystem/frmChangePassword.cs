@@ -40,6 +40,8 @@ namespace BillingSystem
                     MessageBoxIcon.Warning);
                 return;
             }
+            AuditLogger.Log("CHANGE PASSWORD",
+                $"{AppSession.CurrentUsername} changed their password from {currentPassword} to {newPassword}");
 
             try
             {

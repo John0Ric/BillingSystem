@@ -457,7 +457,7 @@ namespace BillingSystem
         private void btnLogout_Click(object sender, EventArgs e)
         {
             AuditLogger.Log("LOGOUT",
-    $"{AppSession.CurrentFullName} ({AppSession.CurrentRole}) logged out.");
+                 $"{AppSession.CurrentFullName} ({AppSession.CurrentRole}) logged out.");
             AppSession.Clear();
 
             this.Close();
@@ -610,11 +610,6 @@ namespace BillingSystem
             }
         }
 
-        private void statusStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
-
-        }
-
         private void btnChangePassword_Click(object sender, EventArgs e)
         {
             if (AppSession.CurrentUserID <= 0)
@@ -630,6 +625,19 @@ namespace BillingSystem
 
             frmChangePassword changePassword = new frmChangePassword();
             changePassword.ShowDialog();
+        }
+
+        private void btnViewRecords_Click(object sender, EventArgs e)
+        {
+            // Make sure the user clicks a customer
+            if (_selectedCustomerId == 0)
+            {
+                MessageBox.Show("Please select a customer to view.", "No Selection",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            frmBillingHistory viewRecordForm = new frmBillingHistory(_selectedCustomerId);
+            viewRecordForm.ShowDialog();
         }
     }
 }

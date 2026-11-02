@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             lblTitle = new Label();
             lblSearch = new Label();
             dgvCustomers = new DataGridView();
@@ -55,8 +55,10 @@
             lblStatusUser = new ToolStripStatusLabel();
             lblStatusSep = new ToolStripStatusLabel();
             lblStatusTime = new ToolStripStatusLabel();
+            toolStripStatusLabel1 = new ToolStripStatusLabel();
             statusTimer = new System.Windows.Forms.Timer(components);
             btnChangePassword = new Button();
+            btnViewRecords = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvCustomers).BeginInit();
             statusStrip1.SuspendLayout();
             SuspendLayout();
@@ -65,9 +67,9 @@
             // 
             lblTitle.AutoSize = true;
             lblTitle.Font = new Font("SimSun", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblTitle.Location = new Point(38, 24);
+            lblTitle.Location = new Point(33, 18);
             lblTitle.Name = "lblTitle";
-            lblTitle.Size = new Size(221, 30);
+            lblTitle.Size = new Size(179, 24);
             lblTitle.TabIndex = 0;
             lblTitle.Text = "Customer List";
             // 
@@ -75,36 +77,35 @@
             // 
             lblSearch.AutoSize = true;
             lblSearch.Font = new Font("Tahoma", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblSearch.Location = new Point(48, 94);
+            lblSearch.Location = new Point(42, 70);
             lblSearch.Name = "lblSearch";
-            lblSearch.Size = new Size(57, 18);
+            lblSearch.Size = new Size(48, 14);
             lblSearch.TabIndex = 1;
             lblSearch.Text = "Search:";
             // 
             // dgvCustomers
             // 
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.Font = new Font("Tahoma", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dgvCustomers.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.Font = new Font("Tahoma", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dgvCustomers.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
             dgvCustomers.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvCustomers.BackgroundColor = Color.FromArgb(255, 245, 245);
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = Color.FromArgb(247, 214, 208);
-            dataGridViewCellStyle2.Font = new Font("Tahoma", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle2.ForeColor = Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
-            dgvCustomers.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = Color.FromArgb(247, 214, 208);
+            dataGridViewCellStyle4.Font = new Font("Tahoma", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle4.ForeColor = Color.Black;
+            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
+            dgvCustomers.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             dgvCustomers.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvCustomers.Columns.AddRange(new DataGridViewColumn[] { CustomerID, FullName, Address, ContactNumber, Email, Balance, Status });
-            dgvCustomers.Location = new Point(37, 150);
-            dgvCustomers.Margin = new Padding(3, 4, 3, 4);
+            dgvCustomers.Location = new Point(32, 112);
             dgvCustomers.Name = "dgvCustomers";
             dgvCustomers.ReadOnly = true;
             dgvCustomers.RowHeadersWidth = 51;
             dgvCustomers.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvCustomers.Size = new Size(819, 331);
+            dgvCustomers.Size = new Size(717, 248);
             dgvCustomers.TabIndex = 2;
             dgvCustomers.CellDoubleClick += dgvCustomers_CellDoubleClick;
             dgvCustomers.CellFormatting += dgvCustomers_CellFormatting;
@@ -170,10 +171,9 @@
             btnAdd.BackColor = Color.FromArgb(226, 180, 189);
             btnAdd.Font = new Font("Tahoma", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnAdd.ForeColor = Color.Black;
-            btnAdd.Location = new Point(37, 500);
-            btnAdd.Margin = new Padding(3, 4, 3, 4);
+            btnAdd.Location = new Point(32, 375);
             btnAdd.Name = "btnAdd";
-            btnAdd.Size = new Size(122, 31);
+            btnAdd.Size = new Size(107, 23);
             btnAdd.TabIndex = 3;
             btnAdd.Text = "Add Customer";
             btnAdd.UseVisualStyleBackColor = false;
@@ -184,10 +184,9 @@
             btnDelete.BackColor = Color.FromArgb(247, 214, 208);
             btnDelete.Font = new Font("Tahoma", 9F);
             btnDelete.ForeColor = Color.Black;
-            btnDelete.Location = new Point(165, 500);
-            btnDelete.Margin = new Padding(3, 4, 3, 4);
+            btnDelete.Location = new Point(144, 375);
             btnDelete.Name = "btnDelete";
-            btnDelete.Size = new Size(77, 31);
+            btnDelete.Size = new Size(67, 23);
             btnDelete.TabIndex = 4;
             btnDelete.Text = "Delete";
             btnDelete.UseVisualStyleBackColor = false;
@@ -198,10 +197,9 @@
             btnSearch.BackColor = Color.FromArgb(226, 180, 189);
             btnSearch.Font = new Font("Tahoma", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnSearch.ForeColor = Color.Black;
-            btnSearch.Location = new Point(770, 88);
-            btnSearch.Margin = new Padding(3, 4, 3, 4);
+            btnSearch.Location = new Point(674, 66);
             btnSearch.Name = "btnSearch";
-            btnSearch.Size = new Size(86, 31);
+            btnSearch.Size = new Size(75, 23);
             btnSearch.TabIndex = 5;
             btnSearch.Text = "Search";
             btnSearch.UseVisualStyleBackColor = false;
@@ -211,11 +209,10 @@
             // 
             txtSearch.BackColor = Color.FromArgb(247, 214, 208);
             txtSearch.ForeColor = Color.Black;
-            txtSearch.Location = new Point(121, 88);
-            txtSearch.Margin = new Padding(3, 4, 3, 4);
+            txtSearch.Location = new Point(106, 66);
             txtSearch.Name = "txtSearch";
             txtSearch.PlaceholderText = "  Search customer...";
-            txtSearch.Size = new Size(623, 27);
+            txtSearch.Size = new Size(546, 23);
             txtSearch.TabIndex = 6;
             txtSearch.KeyPress += txtSearch_KeyPress;
             // 
@@ -223,10 +220,9 @@
             // 
             btnLogout.BackColor = Color.FromArgb(226, 180, 189);
             btnLogout.Font = new Font("Tahoma", 9F);
-            btnLogout.Location = new Point(734, 500);
-            btnLogout.Margin = new Padding(3, 4, 3, 4);
+            btnLogout.Location = new Point(642, 375);
             btnLogout.Name = "btnLogout";
-            btnLogout.Size = new Size(122, 31);
+            btnLogout.Size = new Size(107, 23);
             btnLogout.TabIndex = 7;
             btnLogout.Text = "Logout";
             btnLogout.UseVisualStyleBackColor = false;
@@ -236,10 +232,9 @@
             // 
             btnAnalytics.BackColor = Color.FromArgb(226, 180, 189);
             btnAnalytics.Font = new Font("Tahoma", 9F);
-            btnAnalytics.Location = new Point(734, 551);
-            btnAnalytics.Margin = new Padding(3, 4, 3, 4);
+            btnAnalytics.Location = new Point(642, 413);
             btnAnalytics.Name = "btnAnalytics";
-            btnAnalytics.Size = new Size(122, 31);
+            btnAnalytics.Size = new Size(107, 23);
             btnAnalytics.TabIndex = 8;
             btnAnalytics.Text = "Analytics";
             btnAnalytics.UseVisualStyleBackColor = false;
@@ -249,10 +244,9 @@
             // 
             btnExportExcel.BackColor = Color.FromArgb(226, 180, 189);
             btnExportExcel.Font = new Font("Tahoma", 9F);
-            btnExportExcel.Location = new Point(37, 551);
-            btnExportExcel.Margin = new Padding(3, 4, 3, 4);
+            btnExportExcel.Location = new Point(32, 413);
             btnExportExcel.Name = "btnExportExcel";
-            btnExportExcel.Size = new Size(122, 31);
+            btnExportExcel.Size = new Size(107, 23);
             btnExportExcel.TabIndex = 9;
             btnExportExcel.Text = "Export to Excel";
             btnExportExcel.UseVisualStyleBackColor = false;
@@ -262,10 +256,9 @@
             // 
             btnExportPdf.BackColor = Color.FromArgb(247, 214, 208);
             btnExportPdf.Font = new Font("Tahoma", 9F);
-            btnExportPdf.Location = new Point(165, 554);
-            btnExportPdf.Margin = new Padding(3, 4, 3, 4);
+            btnExportPdf.Location = new Point(145, 413);
             btnExportPdf.Name = "btnExportPdf";
-            btnExportPdf.Size = new Size(109, 31);
+            btnExportPdf.Size = new Size(95, 23);
             btnExportPdf.TabIndex = 10;
             btnExportPdf.Text = "Export to PDF";
             btnExportPdf.UseVisualStyleBackColor = false;
@@ -276,10 +269,9 @@
             btnAuditLog.BackColor = Color.FromArgb(247, 214, 208);
             btnAuditLog.Font = new Font("Tahoma", 9F);
             btnAuditLog.ForeColor = Color.Black;
-            btnAuditLog.Location = new Point(595, 551);
-            btnAuditLog.Margin = new Padding(3, 4, 3, 4);
+            btnAuditLog.Location = new Point(521, 413);
             btnAuditLog.Name = "btnAuditLog";
-            btnAuditLog.Size = new Size(123, 31);
+            btnAuditLog.Size = new Size(108, 23);
             btnAuditLog.TabIndex = 11;
             btnAuditLog.Text = " Audit Log";
             btnAuditLog.UseVisualStyleBackColor = false;
@@ -290,10 +282,9 @@
             btnManagePermissions.BackColor = Color.FromArgb(247, 214, 208);
             btnManagePermissions.Font = new Font("Tahoma", 9F);
             btnManagePermissions.ForeColor = Color.Black;
-            btnManagePermissions.Location = new Point(248, 500);
-            btnManagePermissions.Margin = new Padding(3, 4, 3, 4);
+            btnManagePermissions.Location = new Point(217, 375);
             btnManagePermissions.Name = "btnManagePermissions";
-            btnManagePermissions.Size = new Size(160, 31);
+            btnManagePermissions.Size = new Size(140, 23);
             btnManagePermissions.TabIndex = 12;
             btnManagePermissions.Text = " Manage Permissions";
             btnManagePermissions.UseVisualStyleBackColor = false;
@@ -302,35 +293,41 @@
             // statusStrip1
             // 
             statusStrip1.ImageScalingSize = new Size(20, 20);
-            statusStrip1.Items.AddRange(new ToolStripItem[] { lblStatusUser, lblStatusSep, lblStatusTime });
-            statusStrip1.Location = new Point(0, 589);
+            statusStrip1.Items.AddRange(new ToolStripItem[] { lblStatusUser, lblStatusSep, lblStatusTime, toolStripStatusLabel1 });
+            statusStrip1.Location = new Point(0, 439);
             statusStrip1.Name = "statusStrip1";
-            statusStrip1.Size = new Size(896, 26);
+            statusStrip1.Padding = new Padding(1, 0, 12, 0);
+            statusStrip1.Size = new Size(784, 22);
             statusStrip1.SizingGrip = false;
             statusStrip1.TabIndex = 13;
             statusStrip1.Text = "statusStrip1";
-            statusStrip1.ItemClicked += statusStrip1_ItemClicked;
             // 
             // lblStatusUser
             // 
             lblStatusUser.Name = "lblStatusUser";
-            lblStatusUser.Size = new Size(95, 20);
+            lblStatusUser.Size = new Size(75, 17);
             lblStatusUser.Text = "lblStatusUser";
             lblStatusUser.Click += toolStripStatusLabel1_Click;
             // 
             // lblStatusSep
             // 
             lblStatusSep.Name = "lblStatusSep";
-            lblStatusSep.Size = new Size(687, 20);
+            lblStatusSep.Size = new Size(499, 17);
             lblStatusSep.Spring = true;
             // 
             // lblStatusTime
             // 
             lblStatusTime.Name = "lblStatusTime";
-            lblStatusTime.Size = new Size(99, 20);
+            lblStatusTime.Size = new Size(79, 17);
             lblStatusTime.Text = "lblStatusTime";
             lblStatusTime.TextAlign = ContentAlignment.MiddleRight;
             lblStatusTime.TextImageRelation = TextImageRelation.TextBeforeImage;
+            // 
+            // toolStripStatusLabel1
+            // 
+            toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            toolStripStatusLabel1.Size = new Size(118, 17);
+            toolStripStatusLabel1.Text = "toolStripStatusLabel1";
             // 
             // statusTimer
             // 
@@ -343,21 +340,34 @@
             btnChangePassword.BackColor = Color.FromArgb(247, 214, 208);
             btnChangePassword.Font = new Font("Tahoma", 9F);
             btnChangePassword.ForeColor = Color.Black;
-            btnChangePassword.Location = new Point(595, 500);
-            btnChangePassword.Margin = new Padding(3, 4, 3, 4);
+            btnChangePassword.Location = new Point(521, 375);
             btnChangePassword.Name = "btnChangePassword";
-            btnChangePassword.Size = new Size(133, 31);
+            btnChangePassword.Size = new Size(116, 23);
             btnChangePassword.TabIndex = 14;
             btnChangePassword.Text = "Change Password";
             btnChangePassword.UseVisualStyleBackColor = false;
             btnChangePassword.Click += btnChangePassword_Click;
             // 
+            // btnViewRecords
+            // 
+            btnViewRecords.BackColor = Color.FromArgb(247, 214, 208);
+            btnViewRecords.Font = new Font("Tahoma", 9F);
+            btnViewRecords.ForeColor = Color.Black;
+            btnViewRecords.Location = new Point(255, 413);
+            btnViewRecords.Name = "btnViewRecords";
+            btnViewRecords.Size = new Size(102, 23);
+            btnViewRecords.TabIndex = 15;
+            btnViewRecords.Text = "View Records";
+            btnViewRecords.UseVisualStyleBackColor = false;
+            btnViewRecords.Click += btnViewRecords_Click;
+            // 
             // CustomerListForm
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(255, 245, 245);
-            ClientSize = new Size(896, 615);
+            ClientSize = new Size(784, 461);
+            Controls.Add(btnViewRecords);
             Controls.Add(btnChangePassword);
             Controls.Add(statusStrip1);
             Controls.Add(btnManagePermissions);
@@ -373,7 +383,6 @@
             Controls.Add(dgvCustomers);
             Controls.Add(lblSearch);
             Controls.Add(lblTitle);
-            Margin = new Padding(3, 4, 3, 4);
             Name = "CustomerListForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = " Billing System v1.0 – Customer List (C.D.)";
@@ -413,5 +422,7 @@
         private System.Windows.Forms.Timer statusTimer;
         private DataGridViewTextBoxColumn Status;
         private Button btnChangePassword;
+        private ToolStripStatusLabel toolStripStatusLabel1;
+        private Button btnViewRecords;
     }
 }
