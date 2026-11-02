@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace BillingSystem.Utils
+﻿namespace BillingSystem.Utils
 {
     /// <summary>
-    /// Stores information about the currently logged-in user
-    /// Being static means any form can read these value
+    /// Stores information about the currently logged-in user.
+    /// Being static means any form can read these values
     /// without passing objects between forms.
     /// </summary>
     public static class AppSession
@@ -17,7 +13,7 @@ namespace BillingSystem.Utils
         public static string CurrentRole { get; set; } = string.Empty;
 
         /// <summary>
-        /// Clears all session data. Called on logout
+        /// Clears all session data. Called on logout.
         /// </summary>
         public static void Clear()
         {
@@ -28,3 +24,4 @@ namespace BillingSystem.Utils
         }
     }
 }
+

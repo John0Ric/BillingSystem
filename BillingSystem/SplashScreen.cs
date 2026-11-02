@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 using BillingSystem.Utils;
 
@@ -21,7 +16,7 @@ namespace BillingSystem
             // Apply AppTheme colors
             this.BackColor = AppTheme.PrimaryColor;
 
-            // Start the splash time
+            // Start the splash timer
             splashTimer.Start();
         }
 
@@ -32,10 +27,11 @@ namespace BillingSystem
             this.Hide();
             var loginForm = new LoginForm();
 
-            // When the login form actually closes, close the hidden splash so
-            // the app can exit cleanly.
+
+            // When login form actually closes, close the hidden splash so the app can exit cleanly.
             loginForm.FormClosed += (s, args) => this.Close();
             loginForm.Show();
         }
     }
 }
+

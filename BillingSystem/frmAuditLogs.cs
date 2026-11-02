@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using BillingSystem.Database;
@@ -40,9 +36,9 @@ namespace BillingSystem
 
                     string sql = @"SELECT LogID, Username, Role, Action,
                                           Details, LogDate
-                                   FROM AuditLogs
-                                   WHERE LogDate BETWEEN @From AND @To
-                                   ORDER BY LogDate DESC;";
+                                   FROM   AuditLogs
+                                   WHERE  LogDate BETWEEN @From AND @To
+                                   ORDER  BY LogDate DESC;";
 
                     using (var cmd = new MySqlCommand(sql, conn))
                     {
@@ -56,7 +52,7 @@ namespace BillingSystem
                             adapter.Fill(dt);
                             dgvAuditLogs.DataSource = dt;
                             lblTitle.Text =
-                                $"Audit Log Report ({dt.Rows.Count} record(s))";
+                                $"Audit Log Report  ({dt.Rows.Count} record(s))";
                         }
                     }
                 }
@@ -72,7 +68,7 @@ namespace BillingSystem
         {
             if (dtpFrom.Value.Date > dtpTo.Value.Date)
             {
-                MessageBox.Show("Start date cannot be later end date.",
+                MessageBox.Show("Start date cannot be later than end date.",
                     "Invalid Date Range", MessageBoxButtons.OK,
                     MessageBoxIcon.Warning);
                 return;
@@ -86,3 +82,4 @@ namespace BillingSystem
         }
     }
 }
+

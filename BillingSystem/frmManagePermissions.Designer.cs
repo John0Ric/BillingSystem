@@ -34,7 +34,6 @@
             chkAddCustomer = new CheckBox();
             chkEditCustomer = new CheckBox();
             chkDeleteCustomer = new CheckBox();
-            lblPermissions = new Label();
             chkAnalytics = new CheckBox();
             chkExportExcel = new CheckBox();
             chkExportPdf = new CheckBox();
@@ -47,38 +46,37 @@
             // 
             lblTitle.AutoSize = true;
             lblTitle.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblTitle.Location = new Point(123, 22);
+            lblTitle.Location = new Point(108, 18);
             lblTitle.Name = "lblTitle";
-            lblTitle.Size = new Size(167, 21);
+            lblTitle.Size = new Size(205, 28);
             lblTitle.TabIndex = 0;
             lblTitle.Text = "Manage Permissions";
             // 
             // lblRole
             // 
             lblRole.AutoSize = true;
-            lblRole.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblRole.Location = new Point(86, 62);
+            lblRole.Location = new Point(70, 69);
             lblRole.Name = "lblRole";
-            lblRole.Size = new Size(75, 17);
+            lblRole.Size = new Size(86, 20);
             lblRole.TabIndex = 1;
             lblRole.Text = "Select Role:";
             // 
             // cmbRole
             // 
             cmbRole.FormattingEnabled = true;
-            cmbRole.Location = new Point(197, 61);
+            cmbRole.Items.AddRange(new object[] { "Admin", "Cashier" });
+            cmbRole.Location = new Point(162, 69);
             cmbRole.Name = "cmbRole";
-            cmbRole.Size = new Size(121, 23);
+            cmbRole.Size = new Size(151, 28);
             cmbRole.TabIndex = 2;
             cmbRole.SelectedIndexChanged += cmbRole_SelectedIndexChanged;
             // 
             // chkAddCustomer
             // 
             chkAddCustomer.AutoSize = true;
-            chkAddCustomer.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            chkAddCustomer.Location = new Point(120, 131);
+            chkAddCustomer.Location = new Point(131, 113);
             chkAddCustomer.Name = "chkAddCustomer";
-            chkAddCustomer.Size = new Size(111, 21);
+            chkAddCustomer.Size = new Size(126, 24);
             chkAddCustomer.TabIndex = 3;
             chkAddCustomer.Text = "Add Customer";
             chkAddCustomer.UseVisualStyleBackColor = true;
@@ -86,10 +84,9 @@
             // chkEditCustomer
             // 
             chkEditCustomer.AutoSize = true;
-            chkEditCustomer.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            chkEditCustomer.Location = new Point(120, 158);
+            chkEditCustomer.Location = new Point(131, 143);
             chkEditCustomer.Name = "chkEditCustomer";
-            chkEditCustomer.Size = new Size(109, 21);
+            chkEditCustomer.Size = new Size(124, 24);
             chkEditCustomer.TabIndex = 4;
             chkEditCustomer.Text = "Edit Customer";
             chkEditCustomer.UseVisualStyleBackColor = true;
@@ -97,100 +94,84 @@
             // chkDeleteCustomer
             // 
             chkDeleteCustomer.AutoSize = true;
-            chkDeleteCustomer.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            chkDeleteCustomer.Location = new Point(120, 185);
+            chkDeleteCustomer.Location = new Point(131, 173);
             chkDeleteCustomer.Name = "chkDeleteCustomer";
-            chkDeleteCustomer.Size = new Size(124, 21);
+            chkDeleteCustomer.Size = new Size(142, 24);
             chkDeleteCustomer.TabIndex = 5;
             chkDeleteCustomer.Text = "Delete Customer";
             chkDeleteCustomer.UseVisualStyleBackColor = true;
             // 
-            // lblPermissions
-            // 
-            lblPermissions.AutoSize = true;
-            lblPermissions.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblPermissions.Location = new Point(86, 101);
-            lblPermissions.Name = "lblPermissions";
-            lblPermissions.Size = new Size(77, 17);
-            lblPermissions.TabIndex = 6;
-            lblPermissions.Text = "Permissions";
-            // 
             // chkAnalytics
             // 
             chkAnalytics.AutoSize = true;
-            chkAnalytics.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            chkAnalytics.Location = new Point(120, 212);
+            chkAnalytics.Location = new Point(131, 203);
             chkAnalytics.Name = "chkAnalytics";
-            chkAnalytics.Size = new Size(77, 21);
-            chkAnalytics.TabIndex = 7;
+            chkAnalytics.Size = new Size(90, 24);
+            chkAnalytics.TabIndex = 6;
             chkAnalytics.Text = "Analytics";
             chkAnalytics.UseVisualStyleBackColor = true;
             // 
             // chkExportExcel
             // 
             chkExportExcel.AutoSize = true;
-            chkExportExcel.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            chkExportExcel.Location = new Point(120, 239);
+            chkExportExcel.Location = new Point(131, 233);
             chkExportExcel.Name = "chkExportExcel";
-            chkExportExcel.Size = new Size(114, 21);
-            chkExportExcel.TabIndex = 8;
+            chkExportExcel.Size = new Size(130, 24);
+            chkExportExcel.TabIndex = 7;
             chkExportExcel.Text = "Export to Excel";
             chkExportExcel.UseVisualStyleBackColor = true;
             // 
             // chkExportPdf
             // 
             chkExportPdf.AutoSize = true;
-            chkExportPdf.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            chkExportPdf.Location = new Point(120, 266);
+            chkExportPdf.Location = new Point(131, 263);
             chkExportPdf.Name = "chkExportPdf";
-            chkExportPdf.Size = new Size(107, 21);
-            chkExportPdf.TabIndex = 9;
+            chkExportPdf.Size = new Size(122, 24);
+            chkExportPdf.TabIndex = 8;
             chkExportPdf.Text = "Export to PDF";
             chkExportPdf.UseVisualStyleBackColor = true;
             // 
             // chkAuditLogs
             // 
             chkAuditLogs.AutoSize = true;
-            chkAuditLogs.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            chkAuditLogs.Location = new Point(120, 293);
+            chkAuditLogs.Location = new Point(131, 293);
             chkAuditLogs.Name = "chkAuditLogs";
-            chkAuditLogs.Size = new Size(89, 21);
-            chkAuditLogs.TabIndex = 10;
+            chkAuditLogs.Size = new Size(102, 24);
+            chkAuditLogs.TabIndex = 9;
             chkAuditLogs.Text = "Audit Logs";
             chkAuditLogs.UseVisualStyleBackColor = true;
             // 
             // btnSave
             // 
-            btnSave.Location = new Point(86, 347);
+            btnSave.Location = new Point(102, 344);
             btnSave.Name = "btnSave";
-            btnSave.Size = new Size(114, 23);
-            btnSave.TabIndex = 11;
-            btnSave.Text = "Save Permissions";
+            btnSave.Size = new Size(94, 29);
+            btnSave.TabIndex = 10;
+            btnSave.Text = "Save";
             btnSave.UseVisualStyleBackColor = true;
             btnSave.Click += btnSave_Click;
             // 
             // btnClose
             // 
-            btnClose.Location = new Point(243, 347);
+            btnClose.Location = new Point(202, 344);
             btnClose.Name = "btnClose";
-            btnClose.Size = new Size(75, 23);
-            btnClose.TabIndex = 12;
+            btnClose.Size = new Size(94, 29);
+            btnClose.TabIndex = 11;
             btnClose.Text = "Close";
             btnClose.UseVisualStyleBackColor = true;
             btnClose.Click += btnClose_Click;
             // 
             // frmManagePermissions
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(434, 421);
+            ClientSize = new Size(432, 413);
             Controls.Add(btnClose);
             Controls.Add(btnSave);
             Controls.Add(chkAuditLogs);
             Controls.Add(chkExportPdf);
             Controls.Add(chkExportExcel);
             Controls.Add(chkAnalytics);
-            Controls.Add(lblPermissions);
             Controls.Add(chkDeleteCustomer);
             Controls.Add(chkEditCustomer);
             Controls.Add(chkAddCustomer);
@@ -214,7 +195,6 @@
         private CheckBox chkAddCustomer;
         private CheckBox chkEditCustomer;
         private CheckBox chkDeleteCustomer;
-        private Label lblPermissions;
         private CheckBox chkAnalytics;
         private CheckBox chkExportExcel;
         private CheckBox chkExportPdf;

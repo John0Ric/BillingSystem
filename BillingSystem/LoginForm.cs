@@ -61,8 +61,7 @@ namespace BillingSystem
 
                                 // Write a LOGIN audit log entry
                                 AuditLogger.Log("LOGIN",
-                                    $"{AppSession.CurrentFullName} ({AppSession.CurrentRole}) " +
-                                    $"logged in.");
+                                    $"{AppSession.CurrentFullName} ({AppSession.CurrentRole}) logged in.");
 
                                 // Open the Customer List Form
                                 CustomerListForm listForm = new CustomerListForm();

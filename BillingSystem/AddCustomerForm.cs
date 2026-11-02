@@ -216,6 +216,8 @@ namespace BillingSystem
                                 MessageBox.Show("Customer saved successfully.",
                                     "Saved", MessageBoxButtons.OK,
                                     MessageBoxIcon.Information);
+                                AuditLogger.Log("ADD_CUSTOMER",
+                                $"New customer '{txtFullName.Text.Trim()}' added by {AppSession.CurrentUsername}.");
 
                                 ClearFields();
                             }
@@ -264,6 +266,8 @@ namespace BillingSystem
                                 $" {AppSession.CurrentUsername}.");
                             MessageBox.Show("Customer updated successfully.", "Updated",
                                 MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            AuditLogger.Log("EDIT_CUSTOMER",
+                            $"Customer ID {_editCustomerId} updated by {AppSession.CurrentUsername}.");
 
                             // Close the form - CustomerListForm will refresh on close
                             this.Close();

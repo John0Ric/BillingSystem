@@ -39,31 +39,31 @@
             // 
             lblAppName.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblAppName.ForeColor = Color.White;
-            lblAppName.Location = new Point(103, 26);
+            lblAppName.Location = new Point(80, 53);
             lblAppName.Name = "lblAppName";
-            lblAppName.Size = new Size(313, 58);
+            lblAppName.Size = new Size(336, 53);
             lblAppName.TabIndex = 0;
             lblAppName.Text = "BILLING SYSTEM";
             lblAppName.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // lblTagline
             // 
-            lblTagline.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblTagline.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblTagline.ForeColor = Color.FromArgb(189, 215, 238);
-            lblTagline.Location = new Point(103, 94);
+            lblTagline.Location = new Point(98, 118);
             lblTagline.Name = "lblTagline";
-            lblTagline.Size = new Size(278, 23);
+            lblTagline.Size = new Size(299, 27);
             lblTagline.TabIndex = 1;
-            lblTagline.Text = "Electric Billing Management System";
+            lblTagline.Text = "Electric Billing Management System ";
             lblTagline.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // lblLoading
             // 
             lblLoading.Font = new Font("Segoe UI", 9F, FontStyle.Italic, GraphicsUnit.Point, 0);
-            lblLoading.ForeColor = Color.FromArgb(189, 215, 238);
-            lblLoading.Location = new Point(209, 156);
+            lblLoading.ForeColor = Color.LightBlue;
+            lblLoading.Location = new Point(206, 154);
             lblLoading.Name = "lblLoading";
-            lblLoading.Size = new Size(100, 23);
+            lblLoading.Size = new Size(78, 23);
             lblLoading.TabIndex = 2;
             lblLoading.Text = "Loading...";
             lblLoading.TextAlign = ContentAlignment.MiddleCenter;
@@ -75,9 +75,10 @@
             // 
             // SplashScreen
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(500, 300);
+            BackColor = Color.FromArgb(31, 78, 121);
+            ClientSize = new Size(482, 253);
             Controls.Add(lblLoading);
             Controls.Add(lblTagline);
             Controls.Add(lblAppName);

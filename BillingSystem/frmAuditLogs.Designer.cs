@@ -29,99 +29,99 @@
         private void InitializeComponent()
         {
             lblTitle = new Label();
-            lblTo = new Label();
             lblFrom = new Label();
+            lblTo = new Label();
             dtpFrom = new DateTimePicker();
             dtpTo = new DateTimePicker();
-            btnClose = new Button();
             btnSearch = new Button();
             dgvAuditLogs = new DataGridView();
+            btnClose = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvAuditLogs).BeginInit();
             SuspendLayout();
             // 
             // lblTitle
             // 
             lblTitle.AutoSize = true;
-            lblTitle.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblTitle.Location = new Point(35, 23);
+            lblTitle.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTitle.Location = new Point(25, 26);
             lblTitle.Name = "lblTitle";
-            lblTitle.Size = new Size(167, 25);
+            lblTitle.Size = new Size(205, 31);
             lblTitle.TabIndex = 0;
-            lblTitle.Text = "Audit Log Report";
-            // 
-            // lblTo
-            // 
-            lblTo.AutoSize = true;
-            lblTo.Location = new Point(399, 76);
-            lblTo.Name = "lblTo";
-            lblTo.Size = new Size(23, 15);
-            lblTo.TabIndex = 1;
-            lblTo.Text = "To:";
+            lblTitle.Text = " Audit Log Report";
             // 
             // lblFrom
             // 
             lblFrom.AutoSize = true;
-            lblFrom.Location = new Point(132, 76);
+            lblFrom.Location = new Point(51, 100);
             lblFrom.Name = "lblFrom";
-            lblFrom.Size = new Size(38, 15);
-            lblFrom.TabIndex = 2;
+            lblFrom.Size = new Size(46, 20);
+            lblFrom.TabIndex = 1;
             lblFrom.Text = "From:";
+            // 
+            // lblTo
+            // 
+            lblTo.AutoSize = true;
+            lblTo.Location = new Point(422, 102);
+            lblTo.Name = "lblTo";
+            lblTo.Size = new Size(28, 20);
+            lblTo.TabIndex = 2;
+            lblTo.Text = "To:";
             // 
             // dtpFrom
             // 
-            dtpFrom.Location = new Point(176, 70);
+            dtpFrom.Location = new Point(103, 95);
             dtpFrom.Name = "dtpFrom";
-            dtpFrom.Size = new Size(200, 23);
+            dtpFrom.Size = new Size(250, 27);
             dtpFrom.TabIndex = 3;
             // 
             // dtpTo
             // 
-            dtpTo.Location = new Point(428, 70);
+            dtpTo.Location = new Point(456, 97);
             dtpTo.Name = "dtpTo";
-            dtpTo.Size = new Size(200, 23);
+            dtpTo.Size = new Size(250, 27);
             dtpTo.TabIndex = 4;
-            // 
-            // btnClose
-            // 
-            btnClose.Location = new Point(680, 476);
-            btnClose.Name = "btnClose";
-            btnClose.Size = new Size(75, 23);
-            btnClose.TabIndex = 5;
-            btnClose.Text = "Close";
-            btnClose.UseVisualStyleBackColor = true;
-            btnClose.Click += btnClose_Click;
             // 
             // btnSearch
             // 
-            btnSearch.Location = new Point(680, 70);
+            btnSearch.Location = new Point(741, 97);
             btnSearch.Name = "btnSearch";
-            btnSearch.Size = new Size(75, 23);
-            btnSearch.TabIndex = 6;
+            btnSearch.Size = new Size(94, 29);
+            btnSearch.TabIndex = 5;
             btnSearch.Text = "Search";
             btnSearch.UseVisualStyleBackColor = true;
             btnSearch.Click += btnSearch_Click;
             // 
             // dgvAuditLogs
             // 
-            dgvAuditLogs.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvAuditLogs.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvAuditLogs.Location = new Point(132, 123);
+            dgvAuditLogs.Location = new Point(51, 130);
             dgvAuditLogs.Name = "dgvAuditLogs";
-            dgvAuditLogs.Size = new Size(623, 331);
-            dgvAuditLogs.TabIndex = 7;
+            dgvAuditLogs.RowHeadersWidth = 51;
+            dgvAuditLogs.Size = new Size(792, 313);
+            dgvAuditLogs.TabIndex = 6;
+            // 
+            // btnClose
+            // 
+            btnClose.Location = new Point(741, 462);
+            btnClose.Name = "btnClose";
+            btnClose.Size = new Size(94, 29);
+            btnClose.TabIndex = 7;
+            btnClose.Text = "Close";
+            btnClose.UseVisualStyleBackColor = true;
+            btnClose.Click += btnClose_Click;
             // 
             // frmAuditLogs
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(884, 511);
+            ClientSize = new Size(882, 503);
+            Controls.Add(btnClose);
             Controls.Add(dgvAuditLogs);
             Controls.Add(btnSearch);
-            Controls.Add(btnClose);
             Controls.Add(dtpTo);
             Controls.Add(dtpFrom);
-            Controls.Add(lblFrom);
             Controls.Add(lblTo);
+            Controls.Add(lblFrom);
             Controls.Add(lblTitle);
             Name = "frmAuditLogs";
             StartPosition = FormStartPosition.CenterScreen;
@@ -135,12 +135,12 @@
         #endregion
 
         private Label lblTitle;
-        private Label lblTo;
         private Label lblFrom;
+        private Label lblTo;
         private DateTimePicker dtpFrom;
         private DateTimePicker dtpTo;
-        private Button btnClose;
         private Button btnSearch;
         private DataGridView dgvAuditLogs;
+        private Button btnClose;
     }
 }

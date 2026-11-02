@@ -1,9 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using BillingSystem.Database;
@@ -26,17 +22,17 @@ namespace BillingSystem
             // Map PermissionName strings to their checkbox controls
             _permCheckboxes = new Dictionary<string, CheckBox>
             {
-                { "AddCustomer",    chkAddCustomer },
-                { "EditCustomer",   chkEditCustomer },
-                { "DeleteCustomer", chkDeleteCustomer },
-                { "Analytics",      chkAnalytics },
-                { "ExportExcel",    chkExportExcel },
-                { "ExportPdf",      chkExportPdf },
-                { "AuditLogs",      chkAuditLogs },
+                { "AddCustomer",       chkAddCustomer    },
+                { "EditCustomer",      chkEditCustomer   },
+                { "DeleteCustomer",    chkDeleteCustomer },
+                { "Analytics",         chkAnalytics      },
+                { "ExportExcel",       chkExportExcel    },
+                { "ExportPdf",         chkExportPdf      },
+                { "AuditLogs",         chkAuditLogs      },
             };
 
             // Populate dropdown and load first role
-            cmbRole.Items.AddRange(new object[] { "Admin", "Cashier" });
+            //cmbRole.Items.AddRange(new object[] { "Admin", "Cashier" });
             cmbRole.SelectedIndex = 0;
         }
 
@@ -53,10 +49,9 @@ namespace BillingSystem
                 using (var conn = DatabaseConnection.GetConnection())
                 {
                     conn.Open();
-
                     string sql = @"SELECT PermissionName, IsAllowed
-                                   FROM UserPermissions
-                                   WHERE Role = @Role;";
+                                   FROM   UserPermissions
+                                   WHERE  Role = @Role;";
 
                     using (var cmd = new MySqlCommand(sql, conn))
                     {
@@ -65,16 +60,12 @@ namespace BillingSystem
                         {
                             while (reader.Read())
                             {
-                                string permName =
-                                    reader.GetString("PermissionName");
-                                if (permName == "ManagePermissions")
-                                    continue; // no chkbox for this one
-                                bool isAllowed =
-                                    reader.GetBoolean("IsAllowed");
+                                string permName = reader.GetString("PermissionName");
+                                if (permName == "ManagePermissions") continue;   // no checkbox for this one
+                                bool isAllowed = reader.GetBoolean("IsAllowed");
 
                                 if (_permCheckboxes.ContainsKey(permName))
-                                    _permCheckboxes[permName].Checked =
-                                        isAllowed;
+                                    _permCheckboxes[permName].Checked = isAllowed;
                             }
                         }
                     }
@@ -90,18 +81,17 @@ namespace BillingSystem
         private void btnSave_Click(object sender, EventArgs e)
         {
             if (cmbRole.SelectedItem == null) return;
-            String role = cmbRole.SelectedItem.ToString();
+            string role = cmbRole.SelectedItem.ToString();
 
             try
             {
                 using (var conn = DatabaseConnection.GetConnection())
                 {
                     conn.Open();
-
                     string sql = @"UPDATE UserPermissions
-                                   SET IsAllowed = @IsAllowed
-                                   WHERE Role = @Role
-                                   AND PermissionName = @PermName;";
+                                   SET    IsAllowed = @IsAllowed
+                                   WHERE  Role = @Role
+                                     AND  PermissionName = @PermName;";
 
                     foreach (var kvp in _permCheckboxes)
                     {
@@ -109,21 +99,18 @@ namespace BillingSystem
                         {
                             cmd.Parameters.AddWithValue("@IsAllowed",
                                 kvp.Value.Checked ? 1 : 0);
-                            cmd.Parameters.AddWithValue("@Role",
-                                role);
-                            cmd.Parameters.AddWithValue("@PermName",
-                                kvp.Key);
+                            cmd.Parameters.AddWithValue("@Role", role);
+                            cmd.Parameters.AddWithValue("@PermName", kvp.Key);
                             cmd.ExecuteNonQuery();
                         }
                     }
                 }
+
                 AuditLogger.Log("MANAGE_PERMISSIONS",
-                    $"Permissions updated for role '{role}' by" +
-                    $" {AppSession.CurrentUsername}.");
+                    $"Permissions updated for role '{role}' by {AppSession.CurrentUsername}.");
 
                 MessageBox.Show("Permissions saved successfully.",
-                    "Saved", MessageBoxButtons.OK,
-                    MessageBoxIcon.Information);
+                    "Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
@@ -138,3 +125,4 @@ namespace BillingSystem
         }
     }
 }
+
