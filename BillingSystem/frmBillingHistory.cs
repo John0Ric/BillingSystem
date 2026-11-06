@@ -30,7 +30,7 @@ namespace BillingSystem
             billRecordDGV.Columns["Consumption"].DataPropertyName = "Consumption";
             billRecordDGV.Columns["Rate"].DataPropertyName = "RatePerCubic";
             billRecordDGV.Columns["TotalAmount"].DataPropertyName = "TotalAmount";
-
+            billRecordDGV.Columns["Status"].DataPropertyName = "Status";
         }
 
         private void loadCustomerRecords()
@@ -43,9 +43,10 @@ namespace BillingSystem
                     conn.Open();
 
                     String fillSql = "SELECT BillingMonth, PreviousReading, PresentReading, " +
-                                 "Consumption, RatePerCubic, TotalAmount " +
-                                 "FROM Billing " +
-                                 "WHERE CustomerID = @CustomerID;";
+                                     "Consumption, RatePerCubic, TotalAmount, Status " +
+                                     "FROM Billing " +
+                                     "WHERE CustomerID = @CustomerID " +
+                                     "ORDER BY BillingMonth DESC;";
 
                     using (var adapter = new MySqlDataAdapter(fillSql, conn))
                     {
@@ -64,6 +65,7 @@ namespace BillingSystem
                             billRecordDGV.Columns["Consumption"].HeaderText = "Consumption";
                             billRecordDGV.Columns["Rate"].HeaderText = "Rate";
                             billRecordDGV.Columns["TotalAmount"].HeaderText = "Total Amount";
+                            billRecordDGV.Columns["Status"].HeaderText = "Status";
                         }
                     }
 
